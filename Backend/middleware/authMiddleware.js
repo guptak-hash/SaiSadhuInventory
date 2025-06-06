@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const UserModel = require('../models/user.model');
 require('dotenv').config()
 
-const authMiddleware = (role) => {
+const authMiddleware = (...role) => {
     return async (req, res, next) => {
         try {
             // Check if authorization header exists
@@ -23,7 +23,7 @@ const authMiddleware = (role) => {
             req.userId = decoded.userId;
 
             // Check role authorization
-            if (role == decoded.role) {
+            if (role.includes(decoded.role)) {
                 // attach role to req object
                 req.role = decoded.role;
                 next();
