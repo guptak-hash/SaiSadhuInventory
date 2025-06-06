@@ -1,6 +1,6 @@
 const express=require('express');
 const authMiddleware = require('../middleware/authMiddleware');
-const { addEquipment, getEquipment, getEquipmentById, updateEquipment } = require('../controllers/equipment.controllers');
+const { addEquipment, getEquipment, getEquipmentById, updateEquipment, deleteEquipment } = require('../controllers/equipment.controllers');
 
 const EquipmentRouter=express.Router();
 
@@ -15,5 +15,8 @@ EquipmentRouter.get('/equipment/:id',authMiddleware('user','admin'),getEquipment
 
 // update equipment
 EquipmentRouter.patch('/equipment/:id',authMiddleware('admin'),updateEquipment);
+
+// delete equipment
+EquipmentRouter.delete('/equipment/:id',authMiddleware('admin'),deleteEquipment)
 
 module.exports=EquipmentRouter

@@ -57,9 +57,7 @@ const getEquipmentById=async (req, res) => {
     const tool = await EquipmentModel.findById(req.params.id);
 
     if (!tool) {
-      return next(
-        new ErrorResponse(`Tool not found with id of ${req.params.id}`, 404)
-      );
+      return res.status(400).json({msg:`Tool not found with id of ${req.params.id}`})
     }
 
     res.status(200).json({
@@ -81,9 +79,7 @@ const updateEquipment=async (req, res) => {
     });
 
     if (!tool) {
-      return next(
-        new ErrorResponse(`Tool not found with id of ${req.params.id}`, 404)
-      );
+      return res.status(400).json({msg:`Tool not found with id of ${req.params.id}`})
     }
 
     res.status(200).json({
@@ -96,4 +92,40 @@ const updateEquipment=async (req, res) => {
     }
 };
 
-module.exports = { addEquipment,getEquipment,getEquipmentById,updateEquipment}
+
+const deleteEquipment=async (req, res) => {
+  try {
+    const tool = await EquipmentModel.findById(req.params.id);
+
+    if (!tool) {
+       return res.status(400).json({msg:`Tool not found with id of ${req.params.id}`})
+    }
+
+    // Check if tool is currently leased
+    // const activeLeases = await Lease.find({
+    //   tool: req.params.id,
+    //   status: { $in: ['pending', 'active'] }
+    // });
+
+    // if (activeLeases.length > 0) {
+    //      return res.status(400).json({msg:`Cannot delete tool as it is currently leased or pending lease`})
+    // }
+
+     const deletedTool = await EquipmentModel.findByIdAndDelete(req.params.id);
+
+    if (!deletedTool) {
+      return res.status(404).json({ msg: 'Tool not found' });
+    }
+
+    res.status(200).json({
+      success: true,
+      msg: 'Tool deleted successfully',
+      data: deletedTool  // This will contain the deleted document
+    });
+  } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ msg: 'Something went wrong' });
+    }
+};
+
+module.exports = { addEquipment,getEquipment,getEquipmentById,updateEquipment,deleteEquipment}
