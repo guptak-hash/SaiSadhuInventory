@@ -1,0 +1,145 @@
+[
+  {
+    "name": "Rotary Hammer Drill",
+    "description": "Heavy-duty hammer drill for concrete drilling, 1-1/4 inch capacity, SDS-plus chuck",
+    "category": "power-tools",
+    "dailyLeasePrice": 25.99,
+    "purchasePrice": 299.99,
+    "quantityAvailable": 8,
+    "condition": "excellent",
+    "image": "hammer-drill.jpg",
+    "deliveryCharge": 15.00
+  },
+  {
+    "name": "Table Saw",
+    "description": "10-inch contractor table saw with 32-inch rip capacity and rolling stand",
+    "category": "power-tools",
+    "dailyLeasePrice": 45.50,
+    "purchasePrice": 599.00,
+    "quantityAvailable": 5,
+    "condition": "good",
+    "image": "table-saw.jpg",
+    "deliveryCharge": 25.00
+  },
+  {
+    "name": "Scaffolding Set",
+    "description": "6-foot aluminum scaffolding set (4 frames, 4 planks, 4 cross braces)",
+    "category": "heavy-machinery",
+    "dailyLeasePrice": 75.00,
+    "purchasePrice": 1200.00,
+    "quantityAvailable": 3,
+    "condition": "fair",
+    "image": "scaffolding.jpg",
+    "deliveryCharge": 50.00
+  },
+  {
+    "name": "Laser Level",
+    "description": "Self-leveling cross-line laser level with mounting clamp, 50ft range",
+    "category": "measuring-tools",
+    "dailyLeasePrice": 18.75,
+    "purchasePrice": 199.99,
+    "quantityAvailable": 10,
+    "condition": "new",
+    "image": "laser-level.jpg",
+    "deliveryCharge": 10.00
+  },
+  {
+    "name": "Air Compressor",
+    "description": "6-gallon pancake air compressor, 150 PSI, 2.6 SCFM at 90 PSI",
+    "category": "power-tools",
+    "dailyLeasePrice": 32.50,
+    "purchasePrice": 349.00,
+    "quantityAvailable": 6,
+    "condition": "good",
+    "image": "air-compressor.jpg",
+    "deliveryCharge": 20.00
+  },
+  {
+    "name": "Tile Saw",
+    "description": "10-inch wet tile saw with stand and diamond blade",
+    "category": "power-tools",
+    "dailyLeasePrice": 55.00,
+    "purchasePrice": 499.00,
+    "quantityAvailable": 4,
+    "condition": "excellent",
+    "image": "tile-saw.jpg",
+    "deliveryCharge": 30.00
+  },
+  {
+    "name": "Safety Harness Kit",
+    "description": "Full-body safety harness with 6ft lanyard and shock absorber",
+    "category": "safety-equipment",
+    "dailyLeasePrice": 12.99,
+    "purchasePrice": 149.99,
+    "quantityAvailable": 15,
+    "condition": "good",
+    "image": "safety-harness.jpg",
+    "deliveryCharge": 5.00
+  },
+  {
+    "name": "Concrete Mixer",
+    "description": "3.5 cubic feet electric concrete mixer with stand",
+    "category": "heavy-machinery",
+    "dailyLeasePrice": 65.00,
+    "purchasePrice": 899.00,
+    "quantityAvailable": 2,
+    "condition": "fair",
+    "image": "concrete-mixer.jpg",
+    "deliveryCharge": 45.00
+  },
+  {
+    "name": "Drywall Lift",
+    "description": "Adjustable drywall lift with 12-foot reach, 150 lb capacity",
+    "category": "heavy-machinery",
+    "dailyLeasePrice": 40.00,
+    "purchasePrice": 399.00,
+    "quantityAvailable": 3,
+    "condition": "good",
+    "image": "drywall-lift.jpg",
+    "deliveryCharge": 35.00
+  },
+  {
+    "name": "Circular Saw",
+    "description": "7-1/4 inch corded circular saw with laser guide",
+    "category": "power-tools",
+    "dailyLeasePrice": 18.50,
+    "purchasePrice": 129.99,
+    "quantityAvailable": 12,
+    "condition": "excellent",
+    "image": "circular-saw.jpg",
+    "deliveryCharge": 10.00
+  },
+  {
+    "name": "Floor Sander",
+    "description": "Drum floor sander for hardwood floors, 8-inch width",
+    "category": "heavy-machinery",
+    "dailyLeasePrice": 85.00,
+    "purchasePrice": 1299.00,
+    "quantityAvailable": 2,
+    "condition": "good",
+    "image": "floor-sander.jpg",
+    "deliveryCharge": 60.00
+  },
+  {
+    "name": "Stud Finder",
+    "description": "Digital stud finder with deep scanning and AC wire detection",
+    "category": "measuring-tools",
+    "dailyLeasePrice": 8.99,
+    "purchasePrice": 39.99,
+    "quantityAvailable": 20,
+    "condition": "new",
+    "image": "stud-finder.jpg",
+    "deliveryCharge": 0.00
+  },
+  {
+    "name": "Paint Sprayer",
+    "description": "HVLP paint sprayer with 3 nozzles and 1-quart cup",
+    "category": "power-tools",
+    "dailyLeasePrice": 35.00,
+    "purchasePrice": 249.00,
+    "quantityAvailable": 7,
+    "condition": "excellent",
+    "image": "paint-sprayer.jpg",
+    "deliveryCharge": 15.00
+  }
+]

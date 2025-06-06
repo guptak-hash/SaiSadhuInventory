@@ -2,14 +2,41 @@ const EquipmentModel = require("../models/equipment.model");
 
 const addEquipment = async (req, res) => {
     try {
-        const { name } = req.body;
-        let equipment = await EquipmentModel.find({ name });
-        if (equipment.length) return res.status(400).json({ msg: 'Euipment already exist' });
-        equipment = await EquipmentModel.create(req.body);
-        res.status(200).json({ msg: 'Equipment added success',equipment });
+        const equipmentData = Array.isArray(req.body) ? req.body : [req.body];
+        
+        // Get all names from the input
+        const names = equipmentData.map(item => item.name);
+        
+        // Check for existing equipment with these names
+        const existingEquipment = await EquipmentModel.find({ 
+            name: { $in: names } 
+        });
+        
+        // Filter out duplicates
+        const existingNames = existingEquipment.map(item => item.name);
+        const newEquipmentData = equipmentData.filter(
+            item => !existingNames.includes(item.name)
+        );
+        
+        if (newEquipmentData.length === 0) {
+            return res.status(400).json({ 
+                msg: 'All equipment already exists',
+                duplicates: existingNames
+            });
+        }
+        
+        // Insert only non-duplicates
+        const insertedEquipment = await EquipmentModel.insertMany(newEquipmentData);
+        
+        res.status(200).json({ 
+            msg: `Added ${insertedEquipment.length} equipment successfully`,
+            added: insertedEquipment,
+            duplicates: existingNames.length > 0 ? existingNames : undefined
+        });
+        
     } catch (err) {
-        console.log(err.message)
-        res.status(500).json({ msg: 'Something went wrong' })
+        console.error(err.message);
+        res.status(500).json({ msg: 'Something went wrong' });
     }
 }
 
