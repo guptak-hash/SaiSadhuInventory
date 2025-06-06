@@ -52,4 +52,24 @@ const getEquipment = async (req, res) => {
     }
 }
 
-module.exports = { addEquipment,getEquipment}
+const getEquipmentById=async (req, res) => {
+  try {
+    const tool = await EquipmentModel.findById(req.params.id);
+
+    if (!tool) {
+      return next(
+        new ErrorResponse(`Tool not found with id of ${req.params.id}`, 404)
+      );
+    }
+
+    res.status(200).json({
+      success: true,
+      data: tool
+    });
+  } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ msg: 'Something went wrong' });
+    }
+};
+
+module.exports = { addEquipment,getEquipment,getEquipmentById}

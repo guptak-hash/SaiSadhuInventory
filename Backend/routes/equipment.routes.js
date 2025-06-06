@@ -1,6 +1,6 @@
 const express=require('express');
 const authMiddleware = require('../middleware/authMiddleware');
-const { addEquipment, getEquipment } = require('../controllers/equipment.controllers');
+const { addEquipment, getEquipment, getEquipmentById } = require('../controllers/equipment.controllers');
 
 const EquipmentRouter=express.Router();
 
@@ -9,5 +9,8 @@ EquipmentRouter.post('/add-equipment',authMiddleware('admin'),addEquipment);
 
 // get all equipments
 EquipmentRouter.get('/equipments',authMiddleware('user','admin'),getEquipment)
+
+// get equipment by id
+EquipmentRouter.get('/equipment/:id',authMiddleware('user','admin'),getEquipmentById)
 
 module.exports=EquipmentRouter
