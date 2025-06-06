@@ -25,11 +25,11 @@ const addUser = async (req, res) => {
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
-        console.log('reqbody>> ',req.body)
+        // console.log('reqbody>> ',req.body)
         // check if user exits;
         // finOne() will return Object, find() will return array of objects
         const user = await UserModel.findOne({ email });
-        console.log('user >> ',user)
+        // console.log('user >> ',user)
         if (!user) return res.status(400).json({ msg: "User doesn't exist. Please sign up" });
         // compare password with hash password
         const match = await bcrypt.compare(password, user.password);
