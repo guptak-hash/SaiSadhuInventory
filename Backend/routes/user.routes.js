@@ -7,6 +7,6 @@ const UserRouter=express.Router();
 UserRouter.post('/signup',addUser);
 
 // user login
-// UserRouter.post('/login',loginUser);
+UserRouter.post('/login',loginUser);
 
 module.exports=UserRouter;
