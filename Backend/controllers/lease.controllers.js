@@ -69,10 +69,10 @@ const getLeases=async (req, res) => {
     if (req.params.toolId) {
       query = LeaseModel.find({ tool: req.params.toolId });
     } else if (req.user.role === 'user') {
-      query = LeaseModel.find({ user: req.user.id });
+      query = LeaseModel.find({ user: req.user.userId });
     } else {
       query = LeaseModel.find().populate({
-        path: 'tool',
+        path: 'eqipment',
         select: 'name description'
       });
     }
