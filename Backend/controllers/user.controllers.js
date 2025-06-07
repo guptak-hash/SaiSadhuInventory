@@ -29,14 +29,15 @@ const loginUser = async (req, res) => {
         // check if user exits;
         // finOne() will return Object, find() will return array of objects
         const user = await UserModel.findOne({ email });
-        // console.log('user >> ',user)
+        console.log('user >> ',user)
         if (!user) return res.status(400).json({ msg: "User doesn't exist. Please sign up" });
         // compare password with hash password
         const match = await bcrypt.compare(password, user.password);
         // if not matched return
         if (!match) return res.status(400).json({ msg: "Wrong password" });
         // generate jwt access token valid for 15 minutes
-        const accessToken = jwt.sign({ userId: user._id,role:user.role }, process.env.JWT_SECRET_KEY, { expiresIn: 60*15 }); // token valid for  secs
+        // encrypt user doc in token
+        const accessToken = jwt.sign({userId:user._id,name:user.name,email:user.email,role:user.role}, process.env.JWT_SECRET_KEY, { expiresIn: 60*30 }); // token valid for  secs
         // generate refresh token, valid for 7 days
         // const refreshToken = jwt.sign({ userId: user._id,role:user.role  }, process.env.JWT_SECRET_KEY, { expiresIn: 60*15 })
         res.status(200).json({ msg: 'User login success', accessToken: accessToken})

@@ -18,14 +18,14 @@ const authMiddleware = (...role) => {
 
             // decode the token
             const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
-
-            // attach userId to req object
-            req.userId = decoded.userId;
+            // console.log(`decoded>> `, decoded)
+            // attach user object to req 
+            // req.userId = decoded.userId;
 
             // Check role authorization
             if (role.includes(decoded.role)) {
-                // attach role to req object
-                req.role = decoded.role;
+                // attach user object to req 
+                req.user = decoded;
                 next();
             } else {
                 return res.status(403).json({ msg: 'User not authorized for this operation' });
